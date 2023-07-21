@@ -16,7 +16,7 @@ jobs:
         uses: williamrjackson/upm_version_increment_action@v1.7
         with: 
           path: package.json
-          value: version
+          key: version
       - name: push tags
         uses: actions-ecosystem/action-push-tag@v1
         with:
