@@ -13,7 +13,7 @@ jobs:
             package.json
       - name: Get version
         id: version
-        uses: williamrjackson/upm_version_increment_action@v1.7
+        uses: williamrjackson/upm_version_increment_action@v1.8
         with: 
           path: package.json
           key: version
