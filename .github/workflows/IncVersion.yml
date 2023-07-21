@@ -11,8 +11,15 @@ jobs:
           sparse-checkout: |
             README.md
             package.json
-      - name: increment action step
-        id: versionupdate
-        uses: williamrjackson/upm_version_increment_action@v1.6
-      - name: Get the output time
-        run: echo "The new version is ${{ steps.versionupdate.outputs.new-version }}"
+      - name: Get version
+        id: version
+        uses: williamrjackson/upm_version_increment_action@v1.7
+        with: 
+          path: package.json
+          value: version
+      - name: push tags
+        uses: actions-ecosystem/action-push-tag@v1
+        with:
+          tag: ${{ steps.version.outputs.value }}
+          message: 'Tag with version'
+
