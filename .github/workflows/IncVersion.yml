@@ -3,13 +3,10 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Test Job
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: increment action step
+        id: versionupdate
         uses: williamrjackson/upm_version_increment_action@v1.2
-        with:
-          who-to-greet: 'Jimmy the Nose'
-      # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The new version is ${{ steps.versionupdate.outputs.new-version }}"
