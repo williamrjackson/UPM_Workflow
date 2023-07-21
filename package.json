@@ -1,6 +1,6 @@
 {
     "name": "com.wrj.words",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "displayName": "WRJ Word Game Toolkit",
     "description": "Word game resources. Word lists and related functionaly.",
     "unity": "2021.3",
