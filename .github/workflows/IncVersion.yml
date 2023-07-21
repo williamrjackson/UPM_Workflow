@@ -1,17 +1,18 @@
 on: [push]
+env:
+  GITHUB_TOKEN: ${{ github.token }}
 
 jobs:
-  hello_world_job:
+  version_tag:
     runs-on: ubuntu-latest
     name: Test Job
     steps:
       - name: Check out files
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           sparse-checkout: |
             README.md
             package.json
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get version
         id: version
