@@ -23,6 +23,6 @@ jobs:
       - name: Get the output time
         run: echo "The version is ${{ steps.version.outputs.value }}"
       - name: tag
-        run: git -a tag v${{ steps.version.outputs.value }} -m "Tag with version"
+        run: git tag -a -m "Tag with version" v${{ steps.version.outputs.value }}
       - name: push
-        run: git push origin v${{ steps.version.outputs.value }}
+        run: git push --follow-tags
