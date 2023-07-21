@@ -22,9 +22,7 @@ jobs:
           key: version
       - name: Get the output time
         run: echo "The version is ${{ steps.version.outputs.value }}"
-      - name: push tag
-        uses: actions-ecosystem/action-push-tag@v1
-        with:
-          tag: ${{ steps.version.outputs.value }}
-          message: 'Tag with version'
-
+      - name: tag
+        run: git -a tag v${{ steps.version.outputs.value }} -m "Tag with version"
+      - name: push
+        run: git push origin v${{ steps.version.outputs.value }}
