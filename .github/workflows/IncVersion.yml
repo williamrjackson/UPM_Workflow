@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: increment action step
         id: versionupdate
-        uses: williamrjackson/upm_version_increment_action@v1.2
+        uses: williamrjackson/upm_version_increment_action@v1.3
       - name: Get the output time
         run: echo "The new version is ${{ steps.versionupdate.outputs.new-version }}"
