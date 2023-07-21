@@ -1,6 +1,7 @@
 on: [push]
 env:
   GITHUB_TOKEN: ${{ github.token }}
+permissions: write-all
 
 jobs:
   version_tag:
