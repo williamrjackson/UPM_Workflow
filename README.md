@@ -3,7 +3,7 @@ Testing UPM Post-Commit autoversioning workflow
 
 ## The Plan
 
-1. Trigger on push
+1. Trigger on [push] (to master only?)
 2. Read package.json `"version"` value
 3. If unchanged from previous (how do you know previous?), increment revision (eg x.y.{z+1})
 4. If changed and > previous, use what's there
