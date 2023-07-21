@@ -17,7 +17,9 @@ jobs:
         with: 
           path: package.json
           key: version
-      - name: push tags
+      - name: Get the output time
+        run: echo "The version is ${{ steps.version.outputs.value }}"
+      - name: push tag
         uses: actions-ecosystem/action-push-tag@v1
         with:
           tag: ${{ steps.version.outputs.value }}
