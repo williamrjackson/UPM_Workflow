@@ -23,8 +23,9 @@ jobs:
       - name: log
         run: echo "The version is ${{ steps.version.outputs.value }}"
       - name: gitconfig
-        run: git config user.name "${{ GITHUB_ACTOR }}"
-            git config user.email "${{ GITHUB_ACTOR }}@users.noreply.github.com"
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
       - name: tag
         run: git tag -a -m "Tag with version" v${{ steps.version.outputs.value }}
       - name: push
