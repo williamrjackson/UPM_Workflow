@@ -11,6 +11,8 @@ jobs:
           sparse-checkout: |
             README.md
             package.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Get version
         id: version
         uses: williamrjackson/upm_version_increment_action@v1.8
