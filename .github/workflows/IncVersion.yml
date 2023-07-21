@@ -20,8 +20,11 @@ jobs:
         with: 
           path: package.json
           key: version
-      - name: Get the output time
+      - name: log
         run: echo "The version is ${{ steps.version.outputs.value }}"
+      - name: gitconfig
+        run: git config user.name "${GITHUB_ACTOR}"
+            git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: tag
         run: git tag -a -m "Tag with version" v${{ steps.version.outputs.value }}
       - name: push
