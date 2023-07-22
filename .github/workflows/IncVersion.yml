@@ -17,10 +17,10 @@ jobs:
 
       - name: Get version
         id: version
-        uses: williamrjackson/upm_version_increment_action@v1.8
+        uses: williamrjackson/upm_version_increment_action@v1.9
         with: 
           path: package.json
-          key: version
+          increment: minor
       - name: log
         run: echo "The version is ${{ steps.version.outputs.value }}"
       - name: gitconfig
