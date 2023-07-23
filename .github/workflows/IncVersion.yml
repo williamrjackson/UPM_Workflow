@@ -21,16 +21,12 @@ jobs:
         with: 
           path: package.json
           increment: patch
-      - name: check tag
-        uses: actions/github-script@v6
+      - name: tag-exists-action
         id: check-tag
-        with:
-          script: |
-            return await github.rest.git.getRef({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            ref: "tags/v"
-            }).status
+        uses: mukunku/tag-exists-action@v1.2.0
+        with: 
+          tag: 'v${{steps.version.outputs.version}}'
+
       - name: Get result
         run: echo "${{steps.check-tag.outputs.result}}"
 #       - name: gitconfig
