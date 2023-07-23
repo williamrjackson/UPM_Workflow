@@ -45,10 +45,10 @@ jobs:
           git commit -m "[skip ci] automated version increment"
         if: ${{steps.check-tag.outputs.exists}} == "true"
       - name: tagA
-        run: git tag -a -m "Tag with version" v${{ steps.version.outputs.version }}
+        run: git tag -a -m "Tag with version" v${{ steps.increment.outputs.version }}
         if: ${{steps.check-tag.outputs.exists}} == "true"
       - name: tagB
         run: git tag -a -m "Tag with version" v${{ steps.version.outputs.version }}
-        if: ${{steps.check-tag.outputs.exists}} == "false"
+        if: ${{steps.check-tag.outputs.exists}} != "true"
       - name: push
         run: git push --follow-tags
