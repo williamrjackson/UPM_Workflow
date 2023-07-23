@@ -17,7 +17,7 @@ jobs:
 
       - name: Get version
         id: version
-        uses: williamrjackson/upm_version_increment_action@v1.99998
+        uses: williamrjackson/upm_version_increment_action@v1.0.0
         with: 
           path: package.json
           increment: none
@@ -35,7 +35,7 @@ jobs:
       - name: Set version
         if: ${{ steps.check-tag.outputs.exists }}
         id: increment
-        uses: williamrjackson/upm_version_increment_action@v1.99998
+        uses: williamrjackson/upm_version_increment_action@v1.0.0
         with: 
           path: package.json
           increment: patch
