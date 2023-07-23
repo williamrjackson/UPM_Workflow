@@ -17,27 +17,38 @@ jobs:
 
       - name: Get version
         id: version
-        uses: williamrjackson/upm_version_increment_action@v1.99997
+        uses: williamrjackson/upm_version_increment_action@v1.99998
         with: 
           path: package.json
-          increment: patch
+          increment: none
       - name: tag-exists-action
         id: check-tag
         uses: mukunku/tag-exists-action@v1.2.0
         with: 
           tag: 'v${{steps.version.outputs.version}}'
-
       - name: Get result
-        run: echo "${{steps.check-tag.outputs.result}}"
-#       - name: gitconfig
-#         run: |
-#           git config user.name "GitHub Actions Bot"
-#           git config user.email "<>"
-#       - name: commit changes
-#         run: |
-#           git add .
-#           git commit -m "[skip ci] automated version increment"
-#       - name: tag
-#         run: git tag -a -m "Tag with version" v${{ steps.version.outputs.value }}
-#       - name: push
-#         run: git push --follow-tags
+        run: echo "${{steps.check-tag.outputs.exists}}"
+      - name: gitconfig
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: Set version
+        id: increment
+        uses: williamrjackson/upm_version_increment_action@v1.99998
+        with: 
+          path: package.json
+          increment: patch
+        if: ${{steps.check-tag.outputs.exists}} == "true"
+      - name: commit changes
+        run: |
+          git add .
+          git commit -m "[skip ci] automated version increment"
+        if: ${{steps.check-tag.outputs.exists}} == "true"
+      - name: tagA
+        run: git tag -a -m "Tag with version" v${{ steps.version.outputs.version }}
+        if: ${{steps.check-tag.outputs.exists}} == "true"
+      - name: tagB
+        run: git tag -a -m "Tag with version" v${{ steps.version.outputs.version }}
+        if: ${{steps.check-tag.outputs.exists}} == "false"
+      - name: push
+        run: git push --follow-tags
