@@ -31,7 +31,7 @@ jobs:
             github.rest.git.getRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            ref: tag/v${{steps.version.outputs.version}}
+            ref: "tags/v${{steps.version.outputs.version}}"
             })
       - name: Get result
         run: echo "${{steps.check-tag.outputs.result}}"
