@@ -17,7 +17,7 @@ jobs:
 
       - name: Get version
         id: version
-        uses: williamrjackson/upm_version_increment_action@v1.997
+        uses: williamrjackson/upm_version_increment_action@v1.998
         with: 
           path: package.json
           increment: patch
