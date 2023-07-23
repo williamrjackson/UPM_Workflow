@@ -8,14 +8,14 @@ Testing UPM Post-Commit autoversioning workflow
 3. If unchanged from previous (how do you know previous?), increment revision (eg x.y.{z+1})
 4. If changed and > previous, use what's there
 5. Tag revision as `v1`, `v1.0`, & `v1.0.0`
-6. Update readme with Install Instructions, providing link with target `#v1.0`
+6. Update readme with Install Instructions, providing link with target `#v1.0.0`
 
 ## The Aforementioned Installation Instructions
 
 - In Unity, go to `Window` > `Package Manager`
 - Click the plus and select `Add package from git URL`
 - Paste:
- `https://github.com/williamrjackson/UPM_Workflow.git#v1.0`
+ `https://github.com/williamrjackson/UPM_Workflow.git#v1.0.0`
 - Click "Add"
 - Optionally install examples
 
