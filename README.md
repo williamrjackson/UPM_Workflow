@@ -19,4 +19,4 @@ Testing UPM Post-Commit autoversioning workflow
 - Click "Add"
 - Optionally install examples
 
-Here's a line to modify as a meaningless commit/push to trigger
+Here's a line to modify as a meaningless commit/push to trigger.
