@@ -15,9 +15,9 @@ Testing UPM Post-Commit autoversioning workflow
 - In Unity, go to `Window` > `Package Manager`
 - Click the plus and select `Add package from git URL`
 - Paste:
- `https://github.com/williamrjackson/UPM_Workflow.git#v0.0`
+ `https://github.com/williamrjackson/UPM_Workflow.git#v1.0`
  OR
- `https://github.com/williamrjackson/UPM_Workflow.git#v0.0.0`
+ `https://github.com/williamrjackson/UPM_Workflow.git#v1.0.11`
 - Click "Add"
 - Optionally install examples
 
