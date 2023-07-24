@@ -63,12 +63,12 @@ jobs:
       - name: tagA
         if: ${{ steps.check-tag.outputs.exists }}
         run: |
-          git tag -f -a -m "Tag with maj.min version" v${{ steps.increment.outputs.major }}.${{ steps.increment.outputs.minor }}
-          git tag -a -m "Tag with version" v${{ steps.increment.outputs.version }}
+          git tag -f v${{ steps.increment.outputs.major }}.${{ steps.increment.outputs.minor }}
+          git tag -f v${{ steps.increment.outputs.major }}.${{ steps.increment.outputs.minor }}.${{ steps.increment.outputs.patch }}
       - name: tagB
         if: ${{ !steps.check-tag.outputs.exists }}
         run: |
-          git tag -f -a -m "Tag with maj.min version" v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}
-          git tag -a -m "Tag with version" v${{ steps.version.outputs.version }}
+          git tag -f v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}
+          git tag -f v${{ steps.version.outputs.major }}.${{ steps.version.outputs.minor }}.${{ steps.version.outputs.patch }}
       - name: push
-        run: git push --follow-tags
+        run: git push -f --tags
