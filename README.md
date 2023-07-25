@@ -17,7 +17,7 @@ Testing UPM Post-Commit autoversioning workflow
 - Paste:
  `https://github.com/williamrjackson/UPM_Workflow.git#v1.0`
  OR
- `https://github.com/williamrjackson/UPM_Workflow.git#v1.0.11`
+ `https://github.com/williamrjackson/UPM_Workflow.git#v1.0.12`
 - Click "Add"
 - Optionally install examples
 
